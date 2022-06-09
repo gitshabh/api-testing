@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from model import User
 import os
+import face_recog
 
 app = FastAPI()
 
@@ -17,17 +18,10 @@ def foo():
 
 @app.get("/{name}")
 def root(name:str):
-    directory = 'images/'
-    for filename in os.listdir(directory):
-        f = os.path.join(directory,filename)
-        if os.path.isfile(f):
-            basename = os.path.basename(f)
-            (filename,ext) = os.path.splitext(basename)
-            if filename == name:
-                return {name:'Present'}
-    return {name:'Absent'}
+    flag = face_recog.face_rec(name)
+    return {name: flag}    
 
-@app.get("/users")
+@app.get("/api/users")
 def root1():
-    return {"Hi": "Rishabh here"}
+    return {"Hi": "Rishabh"}
 
