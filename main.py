@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from model import User
-
+import os
 
 app = FastAPI()
 
@@ -12,9 +12,22 @@ async def get_picture(user: User):
     return {"post":"successful"}
 
 @app.get("/")
-def root():
-    return {"Hello": "Rishabh here"}
+def foo():
+    return {"Rishabh":"hi"}
+
+@app.get("/{name}")
+def root(name:str):
+    directory = 'images/'
+    for filename in os.listdir(directory):
+        f = os.path.join(directory,filename)
+        if os.path.isfile(f):
+            basename = os.path.basename(f)
+            (filename,ext) = os.path.splitext(basename)
+            if filename == name:
+                return {name:'Present'}
+    return {name:'Absent'}
 
 @app.get("/users")
 def root1():
     return {"Hi": "Rishabh here"}
+
