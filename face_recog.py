@@ -18,7 +18,7 @@ def compare_faces():
     rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img_encoding = face_recognition.face_encodings(rgb_img)[0]
 
-    img2 = cv2.imread("user3.jpg")
+    img2 = cv2.imread("user2.jpg")
     rgb_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
     img_encoding2 = face_recognition.face_encodings(rgb_img2)[0]
 
