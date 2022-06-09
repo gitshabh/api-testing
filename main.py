@@ -13,8 +13,8 @@ async def get_picture(user: User):
 
 @app.get("/")
 def root():
-    return {"Hello": "from Rishabh"}
+    return {"Hello": "Rishabh here"}
 
 @app.get("/users")
 def root1():
-    return {"Hi": "from Rishabh"}
+    return {"Hi": "Rishabh here"}
