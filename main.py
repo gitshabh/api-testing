@@ -21,11 +21,11 @@ def root(name:str):
     flag = face_recog.face_rec(name)
     return {name: flag}
 
-@app.get("/api/cmp")
-def comp():
-    if face_recog.compare_faces():
-        return {"Faces":"Same"}
-    return {"Faces": "Different"}
+#@app.get("/api/cmp")
+#def comp():
+#    if face_recog.compare_faces():
+#        return {"Faces":"Same"}
+#    return {"Faces": "Different"}
 
 @app.get("/api/users")
 def root1():
