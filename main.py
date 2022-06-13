@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from model import User
 import os
-import face_recog
+#import face_recog
 
 app = FastAPI()
 
@@ -16,10 +16,10 @@ async def get_picture(user: User):
 def foo():
     return {"Rishabh":"hi"}
 
-@app.get("/{name}")
-def root(name:str):
-    flag = face_recog.face_rec(name)
-    return {name: flag}
+#@app.get("/{name}")
+#def root(name:str):
+#    flag = face_recog.face_rec(name)
+#    return {name: flag}
 
 #@app.get("/api/cmp")
 #def comp():
